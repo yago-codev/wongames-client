@@ -2,6 +2,8 @@
   "editor.formatOnSave": true,
   "cSpell.words": [
     "autodocs",
-    "nextjs"
+    "hideonmobile",
+    "nextjs",
+    "plopfile"
   ]
 }
