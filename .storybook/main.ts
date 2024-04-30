@@ -12,7 +12,7 @@ const config: StorybookConfig = {
   },
   staticDirs: ['../public'],
   webpackFinal: (config) => {
-    config.resolve?.modules?.push(`${process.cwd()}/src`)
+    config?.resolve?.modules?.push(`${process.cwd()}/src`)
     return config
   }
 }
