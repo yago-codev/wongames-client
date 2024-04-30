@@ -7,7 +7,5 @@ describe('<{{pascalCase name}} />', () => {
     const { container } = render(<{{pascalCase name}} />)
 
     expect(screen.getByText(/{{pascalCase name}}/i)).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })

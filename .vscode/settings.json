@@ -4,6 +4,12 @@
     "autodocs",
     "hideonmobile",
     "nextjs",
-    "plopfile"
+    "plopfile",
+    "Populars",
+    "testid",
+    "xlarge",
+    "xsmall",
+    "xxlarge",
+    "xxsmall"
   ]
 }
