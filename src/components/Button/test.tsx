@@ -36,4 +36,13 @@ describe('<Button />', () => {
       'font-size': '1.6rem'
     })
   })
+
+  // deve renderizar o tamanho fullWidth quando a prop for passada
+  it('should render the small button size', () => {
+    renderWithTheme(<Button fullWidth>Buy now</Button>)
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
+      width: '100%'
+    })
+  })
 })
