@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
 import Button from '.'
 import { renderWithTheme } from 'utils/tests/helpers'
@@ -6,13 +7,15 @@ import { renderWithTheme } from 'utils/tests/helpers'
 describe('<Button />', () => {
   // deve renderizar o tamanho do botão médio por padrão
   it('should render the medium button size by default', () => {
-    renderWithTheme(<Button>Buy now</Button>)
+    const { container } = renderWithTheme(<Button>Buy now</Button>)
 
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
       height: '4rem',
       padding: '0.8rem 3.2rem',
       'font-size': '1.4rem'
     })
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   // deve renderizar o tamanho do botão pequeno quando a prop size='small' for passada
@@ -44,5 +47,15 @@ describe('<Button />', () => {
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
       width: '100%'
     })
+  })
+
+  // deve renderizar um botão com ícone
+  it('should render an icon version', () => {
+    renderWithTheme(
+      <Button icon={<AddShoppingCart data-testid="icon" />}>Buy now</Button>
+    )
+
+    expect(screen.getByText(/buy now/i)).toBeInTheDocument()
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 })
