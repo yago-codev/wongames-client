@@ -1,30 +1,21 @@
-import styled, { css } from 'styled-components'
-import media, { DefaultBreakpoints } from 'styled-media-query'
+import { DefaultBreakpoints } from 'styled-media-query'
 
-type breakpoint = keyof DefaultBreakpoints
+import * as S from './styles'
+
+export type breakpoint = keyof DefaultBreakpoints
 
 export type MediaMatchProps = {
   lessThan?: breakpoint
   greaterThan?: breakpoint
+  children?: React.ReactNode
 }
 
-const mediaMatchModifers = {
-  lessThan: (size: breakpoint) => css`
-    ${media.lessThan(size)`
-      display: block;
-    `}
-  `,
-  greaterThan: (size: breakpoint) => css`
-    ${media.greaterThan(size)`
-      display: block;
-    `}
-  `
+const MediaMatch = ({ lessThan, greaterThan, children }: MediaMatchProps) => {
+  return (
+    <S.MediaMatch lessThan={lessThan} greaterThan={greaterThan}>
+      {children}
+    </S.MediaMatch>
+  )
 }
 
-export default styled.div<MediaMatchProps>`
-  ${({ lessThan, greaterThan }) => css`
-    display: none;
-    ${!!lessThan && mediaMatchModifers.lessThan(lessThan)};
-    ${!!greaterThan && mediaMatchModifers.greaterThan(greaterThan)};
-  `}
-`
+export default MediaMatch
