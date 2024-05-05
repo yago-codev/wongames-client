@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import StyledComponentsRegistry from '@/lib/registry'
+import StyledComponentsRegistry from 'lib/registry'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
